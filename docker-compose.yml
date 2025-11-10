@@ -1,0 +1,25 @@
+services:
+  filc:
+    build: .
+    platform: linux/amd64
+    volumes:
+      # Bind mount current directory to /workspace for source files
+      - .:/workspace
+      # Optional: bind mount a separate source directory if you prefer
+      # - ./src:/workspace/src
+    working_dir: /workspace
+    # Keep container running for interactive use
+    stdin_open: true
+    tty: true
+    # Override default command to keep container alive
+    command: tail -f /dev/null
+
+  # Alternative service for one-off compilation tasks
+  filc-compile:
+    build: .
+    platform: linux/amd64
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    profiles:
+      - compile

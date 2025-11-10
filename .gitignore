@@ -1,0 +1,31 @@
+# Compiled executables
+src/*
+!src/.gitkeep
+examples/*
+!examples/*.c
+!examples/.gitkeep
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# Docker files (optional - uncomment if you want to ignore these)
+# .docker/
+
+# Logs
+*.log
