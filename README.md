@@ -14,31 +14,31 @@ Fil-C is a memory-safe C compiler that prevents memory safety bugs like buffer o
 
 ### 1. Build the Docker image
 ```bash
-./filc.sh build
+make build
 ```
 
 ### 2. Compile and run the hello world example
 ```bash
-./filc.sh compile-and-run examples/hello.c
+make compile-and-run examples/hello.c
 ```
 
 ## Available Commands
 
-The `filc.sh` script provides convenient commands:
+Use these Makefile commands for development:
 
-- **`./filc.sh build`** - Build the Fil-C Docker image
-- **`./filc.sh shell`** - Start an interactive shell in the container
-- **`./filc.sh compile <file.c>`** - Compile a C file with Fil-C
-- **`./filc.sh run <executable>`** - Run a compiled program
-- **`./filc.sh compile-and-run <file.c>`** - Compile and run in one step
-- **`./filc.sh clean`** - Stop and remove Docker containers
+- **`make build`** - Build the Fil-C Docker image
+- **`make shell`** - Start an interactive shell in the container
+- **`make compile <file.c>`** - Compile a C file with Fil-C
+- **`make run <executable>`** - Run a compiled program
+- **`make compile-and-run <file.c>`** - Compile and run in one step
+- **`make clean`** - Stop and remove Docker containers
 
 ## Development Workflow
 
 1. **Write your C code** in the `src/` directory (or anywhere in the project)
-2. **Compile with Fil-C** using `./filc.sh compile yourfile.c`
-3. **Run your program** using `./filc.sh run yourfile`
-4. **Or do both** with `./filc.sh compile-and-run yourfile.c`
+2. **Compile with Fil-C** using `make compile yourfile.c`
+3. **Run your program** using `make run yourfile`
+4. **Or do both** with `make compile-and-run yourfile.c`
 
 ## Project Structure
 
@@ -62,13 +62,13 @@ echo '#include <stdio.h>
 int main() { printf("Hello World!\\n"); return 0; }' > hello.c
 
 # Compile and run
-./filc.sh compile-and-run hello.c
+make compile-and-run hello.c
 ```
 
 ### Interactive development
 ```bash
 # Start an interactive shell
-./filc.sh shell
+make shell
 
 # Inside the container, you can use clang directly:
 clang -o myprogram myprogram.c -O2 -g
